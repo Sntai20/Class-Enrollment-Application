@@ -56,7 +56,31 @@ namespace GradesPrototype.Views
         // Grades data is hardcoded in the XAML code for the StudentProfile view in this version of the prototype
         public void Refresh()
         {
+            // Parse the student name into the first name and last name by using a regular expression
+            // The firstname is the initial sting up to the first space character.
+            // The lastname is the string after the space character
+            Match matchNames = Regex.Match(SessionContext.CurrentStudent, @"([^ ]+)([^ ]+)");
 
+            if(matchNames.Success)
+            {
+                string firstname = matchNames.Groups[1].Value; // Indexing in the Groups collection starts at 1, not 0
+                string lastname = matchNames.Groups[2].Value;
+
+                // Display the first name and the last name in the TextBlock controls in the studentName StackPanel
+                ((TextBlock)studentName.Children[0]).Text = firstname;
+                ((TextBlock)studentName.Children[1]).Text = lastname;
+            }
+
+            // If the current user is a student, hide the Back button
+            // (only applicable to the teachers who can use the Back button to return to the list of students)
+            if(SessionContext.UserRole == Role.Student)
+            {
+                btnBack.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                btnBack.Visibility = Visibility.Visible;
+            }
         }
     }
 }
