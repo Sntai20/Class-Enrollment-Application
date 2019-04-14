@@ -84,16 +84,16 @@ namespace School
 
         #region Predefined code
 
-        private void studentsList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
+        //private void studentsList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        //{
  
-        }
+        //}
 
         // Save changes back to the database and make them permanent
-        private void saveChanges_Click(object sender, RoutedEventArgs e)
-        {
+        //private void saveChanges_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
         #endregion
     }
