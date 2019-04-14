@@ -31,6 +31,7 @@ namespace GradesPrototype.Views
         public event EventHandler LogonSuccess;
 
         // TODO: Exercise 3: Task 1a: Define LogonFailed event
+        public event EventHandler LogonFailed;
 
         #endregion
 
