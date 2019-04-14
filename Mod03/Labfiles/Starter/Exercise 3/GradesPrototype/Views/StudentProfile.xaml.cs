@@ -69,6 +69,20 @@ namespace GradesPrototype.Views
             }
 
             // TODO: Exercise 3: Task 4d: Create a list of the grades for the student and display this list on the page
+            // Find all the grades for the student
+            ArrayList grades = new ArrayList();
+
+            foreach (Grade grade in DataSource.Grades)
+            {
+                if (grade.StudentID == SessionContext.CurrentStudent.StudentID)
+                {
+                    grades.Add(grade);
+                }
+            }
+
+            // Display the grades in the studentGrades ItemsControl by using databinding
+            studentGrades.ItemsSource = grades;
+
         }
     }
 }
