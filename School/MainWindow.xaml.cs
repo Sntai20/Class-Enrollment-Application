@@ -57,10 +57,10 @@ namespace School
         // When the user presses a key, determine whether to add a new student to a class, remove a student from a class, or modify the details of a student
         private void studentsList_KeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.Key)
+            switch (e.Key)
             {
                 // TODO: Exercise 1: Task 1a: If the user pressed Enter, edit the details for the currently selected student
-                case Key.Enter: 
+                case Key.Enter:
                     Student student = this.studentsList.SelectedItem as Student;
                     StudentForm sf = new StudentForm();
                     // TODO: Exercise 1: Task 2a: Use the StudentsForm to display and edit the details of the student
@@ -70,51 +70,52 @@ namespace School
                     sf.lastName.Text = student.LastName;
                     sf.dateOfBirth.Text = student.DateOfBirth.ToString("d");
                     // TODO: Exercise 1: Task 3a: Display the form
-                    if(sf.ShowDialog().Value)
+                    if (sf.ShowDialog().Value)
                     {
                         // TODO: Exercise 1: Task 3b: When the user closes the form, copy the details back to the student
                         student.FirstName = sf.firstName.Text;
                         student.LastName = sf.lastName.Text;
-                        student.DateOfBirth = DateTime.ParseExact(sf.dateOfBirth.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);                   
+                        student.DateOfBirth = DateTime.ParseExact(sf.dateOfBirth.Text, "MM/dd/yyyy", CultureInfo.InvariantCulture);
                         // TODO: Exercise 1: Task 3c: Enable saving (changes are not made permanent until they are written back to the database)
                         saveChanges.IsEnabled = true;
                     }
-                break;
+                    break;
             }
 
-        #region Predefined code
+            #region Predefined code
 
-        //private void studentsList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        //{
- 
-        //}
+            //private void studentsList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+            //{
 
-        // Save changes back to the database and make them permanent
-        //private void saveChanges_Click(object sender, RoutedEventArgs e)
-        //{
+            //}
 
-        //}
+            // Save changes back to the database and make them permanent
+            //private void saveChanges_Click(object sender, RoutedEventArgs e)
+            //{
 
-        #endregion
-    }
+            //}
 
-    [ValueConversion(typeof(string), typeof(Decimal))]
-    class AgeConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter,
-                              System.Globalization.CultureInfo culture)
-        {
-            return "";
+            #endregion
         }
 
-        #region Predefined code
-
-        public object ConvertBack(object value, Type targetType, object parameter,
+        [ValueConversion(typeof(string), typeof(Decimal))]
+        class AgeConverter : IValueConverter
+        {
+            public object Convert(object value, Type targetType, object parameter,
                                   System.Globalization.CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
+            {
+                return "";
+            }
 
-        #endregion
+            #region Predefined code
+
+            public object ConvertBack(object value, Type targetType, object parameter,
+                                      System.Globalization.CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
+
+            #endregion
+        }
     }
 }
