@@ -33,7 +33,22 @@ namespace GradesPrototype.Views
         // TODO: Exercise 3: Task 3a: Display students for the current teacher (held in SessionContext.CurrentTeacher )
         public void Refresh()
         {
+            // Find students for the current teacher
+            ArrayList students = new ArrayList();
 
+            foreach (Student student in DataSource.Students)
+            {
+                if (student.TeacherID == SessionContext.CurrentTeacher.TeacherID)
+                {
+                    students.Add(student);
+                }
+        }
+
+// Bind the collection to the list item template
+list.ItemsSource = students;
+
+// Display the class name
+txtClass.Text = String.Format("Class {0}", SessionContext.CurrentTeacher.Class);
         }
         #endregion
 
