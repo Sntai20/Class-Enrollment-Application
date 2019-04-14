@@ -36,8 +36,8 @@ namespace GradesPrototype
         {
             // Display the logon view and hide the list of students and single student view
             logonPage.Visibility = Visibility.Visible;
-            StudentsPage.VisibilityProperty = Visibility.Collapsed;
-            StudentProfile.VisibilityProperty = Visibility.Collapsed;
+            StudentsPage.Visibility = Visibility.Collapsed;
+            StudentProfile.Visibility = Visibility.Collapsed;
         }
 
         // TODO: Exercise 1: Task 4c: Display the list of students
