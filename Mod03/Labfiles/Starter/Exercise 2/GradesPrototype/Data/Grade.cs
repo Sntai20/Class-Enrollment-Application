@@ -10,7 +10,15 @@ namespace GradesPrototype.Data
     public enum Role { Teacher, Student };
 
     // TODO: Exercise 2: Task 1a: Create the Grade struct
+    public struct Grade
+    {
+        public int StudentID { get; set; }
+        public string SubjectName { get; set; }
+        public string SubjectName { get; set; }
+        public string Assessment { get; set; }
+        public string Comments { get; set; }
 
+}
 
     // TODO: Exercise 2: Task 1b: Create the Student struct
 
