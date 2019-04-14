@@ -128,7 +128,9 @@ namespace GradesPrototype
 
                 case Role.Teacher:
                     // TODO: Exercise 3: Task 2d: Display the teacher name in the banner at the top of the page
-                    
+                    // Display the teacher name in the banner at the top of the page
+                    txtName.Text = string.Format("Welcome {0} {1}", SessionContext.CurrentTeacher.FirstName, SessionContext.CurrentTeacher.LastName);
+
                     // Display the list of students for the teacher
                     GotoStudentsPage();                    
                     break;
