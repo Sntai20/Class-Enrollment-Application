@@ -56,8 +56,14 @@ namespace GradesPrototype
         #region Event Handlers
 
         // TODO: Exercise 1: Task 3b: Handle successful logon
-        // Update the display and show the data for the logged on user
-
+        // Handle successful logon
+        private void Logon_Success(object sender, EventArgs e)
+        {
+            // Update the display and show the data for the logged on user
+            logonPage.Visibility = Visibility.Collapsed;
+            gridLoggedIn.Visibility = Visibility.Visible;
+            Refresh();
+        }
         // Handle logoff
         private void Logoff_Click(object sender, RoutedEventArgs e)
         {
