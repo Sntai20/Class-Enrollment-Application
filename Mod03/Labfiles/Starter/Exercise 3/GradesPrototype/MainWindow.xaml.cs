@@ -77,6 +77,11 @@ namespace GradesPrototype
 
         // TODO: Exercise 3: Task 2a: Handle logon failure
         // Display an error message. The user must try again
+        private void Logon_Failed(object sender, EventArgs e)
+        {
+            // Display an error message. The user must try again
+            MessageBox.Show("Invalid Username or Password", "Logon Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
 
         // Handle logoff
