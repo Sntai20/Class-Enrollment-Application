@@ -64,6 +64,28 @@ namespace GradesPrototype.Data
         public int TeacherID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+
+        // Constructor to initialize the properties of a new Student
+        public Student(int studentID, string userName, string password, string firstname, string lastname, int teacherID)
+        {
+            StudentID = studentID;
+            UserName = userName;
+            Password = password;
+            FirstName = firstname;
+            LastName = lastname;
+            TeacherID = teacherID;
+        }
+
+        // Default constructor
+        public Student()
+        {
+            StudentID = 0;
+            UserName = String.Empty;
+            Password = String.Empty;
+            FirstName = String.Empty;
+            LastName = String.Empty;
+            TeacherID = 0;
+        }
     }
 
     // TODO: Exercise 1: Task 2b: Convert Teacher into a class, make the password property write-only, add the VerifyPassword method, and define constructors
