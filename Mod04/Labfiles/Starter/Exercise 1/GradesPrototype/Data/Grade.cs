@@ -13,13 +13,33 @@ namespace GradesPrototype.Data
     // WPF Databinding requires properties
 
     // TODO: Exercise 1: Task 1a: Convert Grade into a class and define constructors
-    public struct Grade
+    public class Grade
     {
         public int StudentID { get; set; }
         public string AssessmentDate { get; set; }
         public string SubjectName { get; set; }
         public string Assessment { get; set; }
         public string Comments { get; set; }
+
+        // Consturctor to initialize the properties of a new Grade
+        public Grade(int studentID, string assessmentDate, string subject, string assessment, string comments)
+        {
+            StudentID = studentID;
+            AssessmentDate = assessmentDate;
+            SubjectName = subject;
+            Assessment = assessment;
+            Comments = comments;
+        }
+
+        // Default constructor
+        public Grade()
+        {
+            StudentID = 0;
+            AssessmentDate = DateTime.Now.ToString("d");
+            SubjectName = "Math";
+            Assessment = "A";
+            Comments = String.Empty;
+        }
     }
 
     // TODO: Exercise 1: Task 2a: Convert Student into a class, make the password property write-only, add the VerifyPassword method, and define constructors
