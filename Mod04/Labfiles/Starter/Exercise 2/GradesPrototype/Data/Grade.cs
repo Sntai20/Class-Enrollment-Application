@@ -49,9 +49,31 @@ namespace GradesPrototype.Data
                 }
             }
         }
-        
+
         // TODO: Exercise 2: Task 2b: Add validation to the SubjectName property
-        public string SubjectName { get; set; }
+        private string _subjectName;
+        public string SubjectName
+        {
+            get
+            {
+                return _subjectName;
+            }
+
+            set
+            {
+                // Check that the specified subject is valid
+                if (DataSource.Subjects.Contains(value))
+                {
+                    // If the subject is valid store the subject name
+                    _subjectName = value;
+                }
+                else
+                {
+                    // If the subject is not valid then throw an ArgumentException
+                    throw new ArgumentException("SubjectName", "Subject is not recogined");
+                }
+            }
+        }
 
         // TODO: Exercise 2: Task 2c: Add validation to the Assessment property
         public string Assessment { get; set; }
