@@ -166,7 +166,18 @@ namespace GradesPrototype.Data
         }
 
         // TODO: Exercise 3: Task 2b: Compare Student objects based on their LastName and FirstName properties
+        // Compare Student objects based on their LastName and FirstName properties
+        public int CompareTo(Student other)
+        {
+            // Concatenate the LastName and FirstName of this student
+            string thisStudentsFullName = LastName + FirstName;
 
+            // Concatenate the LastName and Firstname of the "other" student
+            string otherStudentsFullname = other.LastName + other.FirstName;
+
+            // Use String.COmpare to compare the conctenated names and return the result
+            return (String.Compare(thisStudentsFullName, otherStudentsFullname));
+        }
     }
 
     public class Teacher
