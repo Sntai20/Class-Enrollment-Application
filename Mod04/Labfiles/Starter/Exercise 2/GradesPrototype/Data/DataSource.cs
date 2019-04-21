@@ -15,9 +15,9 @@ namespace GradesPrototype.Data
         public static ArrayList Teachers;
         public static ArrayList Students;
         public static ArrayList Grades;
-        
-        // TODO: Exercise 2: Task 1a: Define a List collection for holding the names of valid subjects
 
+        // TODO: Exercise 2: Task 1a: Define a List collection for holding the names of valid subjects
+        public static List<string> Subjects;
         #region Sample Data
         // Populate the collections with mock data
         public static void CreateData()
