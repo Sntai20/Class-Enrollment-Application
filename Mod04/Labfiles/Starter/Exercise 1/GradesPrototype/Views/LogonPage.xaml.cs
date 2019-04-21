@@ -41,7 +41,7 @@ namespace GradesPrototype.Views
             // TODO: Exercise 1: Task 3a: Use the VerifyPassword method of the Teacher class to verify the teacher's password
             var teacher = (from Teacher t in DataSource.Teachers
                            where String.Compare(t.UserName, username.Text) == 0
-                           && String.Compare(t.Password, password.Password) == 0
+                           t.VerifyPassword(password.Password)
                            select t).FirstOrDefault();
 
             // If the UserName of the user retrieved by using LINQ is non-empty then the user is a teacher
