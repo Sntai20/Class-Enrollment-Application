@@ -46,7 +46,7 @@ namespace GradesPrototype.Views
 
             // If the UserName of the user retrieved by using LINQ is non-empty then the user is a teacher
             // TODO: Exercise 1: Task 3b: Check whether teacher is null before examining the UserName property
-            if (!String.IsNullOrEmpty(teacher.UserName))
+            if (teacher != null && !String.IsNullOrEmpty(teacher.UserName))
             {
                 // Save the UserID and Role (teacher or student) and UserName in the global context
                 SessionContext.UserID = teacher.TeacherID;
