@@ -66,13 +66,13 @@ namespace GradesPrototype.Data
         public string LastName { get; set; }
 
         // Constructor to initialize the properties of a new Student
-        public Student(int studentID, string userName, string password, string firstname, string lastname, int teacherID)
+        public Student(int studentID, string userName, string password, string firstName, string lastName, int teacherID)
         {
             StudentID = studentID;
             UserName = userName;
             Password = password;
-            FirstName = firstname;
-            LastName = lastname;
+            FirstName = firstName;
+            LastName = lastName;
             TeacherID = teacherID;
         }
 
@@ -89,13 +89,48 @@ namespace GradesPrototype.Data
     }
 
     // TODO: Exercise 1: Task 2b: Convert Teacher into a class, make the password property write-only, add the VerifyPassword method, and define constructors
-    public struct Teacher
+    public class Teacher
     {
         public int TeacherID { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
+        private string _password = Guid.NewGuid().ToString(); // Generate a random password by default
+
+        public string Password
+        {
+            set
+            {
+                _password = value;
+            }
+        }
+
+        public bool VerifyPassword(string pass)
+        {
+            return (String.Compare(pass, _password) == 0);
+        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Class { get; set; }
+
+        // Constructor to initialize the properties of a new Teacher
+        public Teacher(int teacherID, string userName, string password, string firstName, string lastName, string className)
+        {
+            TeacherID = teacherID;
+            UserName = userName;
+            Password = password;
+            FirstName = firstName;
+            LastName = lastName;
+            Class = className;
+        }
+
+        // Default constructor
+        public Teacher()
+        {
+            TeacherID = 0;
+            UserName = String.Empty;
+            Password = String.Empty;
+            FirstName = String.Empty;
+            LastName = String.Empty;
+            Class = String.Empty;
+        }
     }
 }
