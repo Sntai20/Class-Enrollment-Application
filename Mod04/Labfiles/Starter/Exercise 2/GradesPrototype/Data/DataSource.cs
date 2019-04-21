@@ -23,6 +23,7 @@ namespace GradesPrototype.Data
         public static void CreateData()
         {
             // TODO: Exercise 2: Task 1b: Populate the list of valid subjects with sample data
+            Subjects = new List<string>() { "Math", "English", "History", "Geography", "Science" };
 
             Teachers = new ArrayList()
             {
