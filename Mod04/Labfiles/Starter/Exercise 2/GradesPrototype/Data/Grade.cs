@@ -76,7 +76,31 @@ namespace GradesPrototype.Data
         }
 
         // TODO: Exercise 2: Task 2c: Add validation to the Assessment property
-        public string Assessment { get; set; }
+        private string _assessment;
+        public string Assessment
+        {
+            get
+            {
+                return _assessment;
+            }
+
+            set
+            {
+                // Verify that the grade is in the range A+ to E-
+                // Use a regular expression: a single character in the range A-E at the start of the string followed by an optional + or - at the end of the string
+                Match matchGrade = Regex.Match(value, @"[A-E][+-]?$");
+
+                if (matchGrade.Success)
+                {
+                    _assessment = value;
+                }
+                else
+                {
+                    // If the grade is not valid then throw an ArgumentOutofRangeException
+                    throw new ArgumentOutOfRangeException("Assessment", "Assessment grade must be in the range of A+ to E-");
+                }
+            }
+        }
 
         public string Comments { get; set; }
                 
