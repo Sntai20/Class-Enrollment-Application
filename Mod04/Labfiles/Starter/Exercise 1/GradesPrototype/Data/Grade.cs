@@ -43,11 +43,24 @@ namespace GradesPrototype.Data
     }
 
     // TODO: Exercise 1: Task 2a: Convert Student into a class, make the password property write-only, add the VerifyPassword method, and define constructors
-    public struct Student
+    public class Student
     {
         public int StudentID { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
+        private string _password = Guid.NewGuid().ToString(); // Generate a random password by default
+
+        public string Password
+        {
+            set
+            {
+                _password = value;
+            }
+        }
+
+        public bool VerifyPassword(string pass)
+        {
+            return (String.Compare(pass, _password) == 0);
+        }
         public int TeacherID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
