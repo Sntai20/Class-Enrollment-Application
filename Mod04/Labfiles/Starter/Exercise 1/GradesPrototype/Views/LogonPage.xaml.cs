@@ -69,7 +69,7 @@ namespace GradesPrototype.Views
 
                 // If the UserName of the user retrieved by using LINQ is non-empty then the user is a student
                 // TODO: Exercise 1: Task 3d: Check whether student is null before examining the UserName property
-                if (!String.IsNullOrEmpty(student.UserName))
+                if (student != null && !String.IsNullOrEmpty(student.UserName))
                 {
                     // Save the details of the student in the global context
                     SessionContext.UserID = student.StudentID;
