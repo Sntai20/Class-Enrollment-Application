@@ -17,7 +17,38 @@ namespace GradesPrototype.Data
         public int StudentID { get; set; }
 
         // TODO: Exercise 2: Task 2a: Add validation to the AssessmentDate property
-        public string AssessmentDate { get; set; }
+        private string _assessmentDate;
+        public string AssessmentDate
+        {
+            get
+            {
+                return _assessmentDate;
+            }
+
+            set
+            {
+                DateTime assessmentDate;
+
+                // Verify that the user has provided a valid dat
+                if (DateTime.TryParse(value, out assessmentDate))
+                {
+                    // Check that the date is no later than the current dat
+                    if (assessmentDate > DateTime.Now)
+                    {
+                        // Thro an ArgumentOutOfRangException if the date is after the current dat
+                        throw new ArgumentOutOfRangeException("AssessmentDat", "Assessment date must be on or before the current date");
+                    }
+
+                    // If the date is valid, then save it in the appropriate format
+                    _assessmentDate = assessmentDate.ToString("d");
+                }
+                else
+                {
+                    // If the date is not in a valid format then throw an ArgumentException
+                    throw new ArgumentException("AssessmentDate", "Assessment dat is not recognized");
+                }
+            }
+        }
         
         // TODO: Exercise 2: Task 2b: Add validation to the SubjectName property
         public string SubjectName { get; set; }
