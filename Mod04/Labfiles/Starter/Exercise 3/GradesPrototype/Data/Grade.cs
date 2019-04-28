@@ -121,7 +121,7 @@ namespace GradesPrototype.Data
     }
 
     // TODO: Exercise 3: Task 2a: Specify that the Student class implements the IComparable<Student> interface
-    public class Student
+    public class Student : IComparable<Student>
     {
         public int StudentID { get; set; }
         public string UserName { get; set; }
@@ -166,7 +166,18 @@ namespace GradesPrototype.Data
         }
 
         // TODO: Exercise 3: Task 2b: Compare Student objects based on their LastName and FirstName properties
+        // Compare Student objects based on their LastName and FirstName properties
+        public int CompareTo(Student other)
+        {
+            // Concatenate the LastName and FirstName of this student
+            string thisStudentsFullName = LastName + FirstName;
 
+            // Concatenate the LastName and Firstname of the "other" student
+            string otherStudentsFullname = other.LastName + other.FirstName;
+
+            // Use String.COmpare to compare the conctenated names and return the result
+            return (String.Compare(thisStudentsFullName, otherStudentsFullname));
+        }
     }
 
     public class Teacher
