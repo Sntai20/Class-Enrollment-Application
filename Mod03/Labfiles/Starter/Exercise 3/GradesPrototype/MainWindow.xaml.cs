@@ -26,20 +26,20 @@ namespace GradesPrototype
     {
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
             DataSource.CreateData();
-            GotoLogon();
+            //GotoLogon();
         }
 
         #region Navigation
         // Display the logon view
-        public void GotoLogon()
-        {
-            // Display the logon view and hide the list of students and single student page
-            logonPage.Visibility = Visibility.Visible;
-            studentsPage.Visibility = Visibility.Collapsed;
-            studentProfile.Visibility = Visibility.Collapsed;
-        }
+        //public void GotoLogon()
+        //{
+        //    // Display the logon view and hide the list of students and single student page
+        //    logonPage.Visibility = Visibility.Visible;
+        //    studentsPage.Visibility = Visibility.Collapsed;
+        //    studentProfile.Visibility = Visibility.Collapsed;
+        //}
 
         // Display the list of students
         private void GotoStudentsPage()
@@ -53,35 +53,35 @@ namespace GradesPrototype
         }
 
         // Display the details for a single student
-        public void GotoStudentProfile()
-        {
-            // Hide the list of students
-            studentsPage.Visibility = Visibility.Collapsed;
+        //public void GotoStudentProfile()
+        //{
+        //    // Hide the list of students
+        //    studentsPage.Visibility = Visibility.Collapsed;
 
-            // Display the page for a single student
-            studentProfile.Visibility = Visibility.Visible;
-            studentProfile.Refresh();
-        }
+        //    // Display the page for a single student
+        //    studentProfile.Visibility = Visibility.Visible;
+        //    studentProfile.Refresh();
+        //}
         #endregion
 
         #region Event Handlers
 
         // Handle successful logon
-        private void Logon_Success(object sender, EventArgs e)
-        {
-            // Update the display and show the data for the logged on user
-            logonPage.Visibility = Visibility.Collapsed;
-            gridLoggedIn.Visibility = Visibility.Visible;
-            Refresh();
-        }
+        //private void Logon_Success(object sender, EventArgs e)
+        //{
+        //    // Update the display and show the data for the logged on user
+        //    logonPage.Visibility = Visibility.Collapsed;
+        //    gridLoggedIn.Visibility = Visibility.Visible;
+        //    Refresh();
+        //}
 
-        // TODO: Exercise 3: Task 2a: Handle logon failure
-        // Display an error message. The user must try again
-        private void Logon_Failed(object sender, EventArgs e)
-        {
-            // Display an error message. The user must try again
-            MessageBox.Show("Invalid Username or Password", "Logon Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-        }
+        //// TODO: Exercise 3: Task 2a: Handle logon failure
+        //// Display an error message. The user must try again
+        //private void Logon_Failed(object sender, EventArgs e)
+        //{
+        //    // Display an error message. The user must try again
+        //    MessageBox.Show("Invalid Username or Password", "Logon Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+        //}
 
 
         // Handle logoff
@@ -95,19 +95,19 @@ namespace GradesPrototype
         }
 
         // Handle the Back button on the Student view
-        private void studentPage_Back(object sender, EventArgs e)
-        {
-            GotoStudentsPage();
-        }
+        //private void studentPage_Back(object sender, EventArgs e)
+        //{
+        //    GotoStudentsPage();
+        //}
 
         // Handle the StudentSelected event when the user clicks a student on the Students view
-        private void studentsPage_StudentSelected(object sender, StudentEventArgs e)
-        {
-            // TODO: Exercise 3: Task 3c: Set the current student in the global context to the student specified in the StudentEventArgs parameter
-            SessionContext.CurrentStudent = e.Child;
-            // Display the details of the current student
-            GotoStudentProfile();
-        }
+        //private void studentsPage_StudentSelected(object sender, StudentEventArgs e)
+        //{
+        //    // TODO: Exercise 3: Task 3c: Set the current student in the global context to the student specified in the StudentEventArgs parameter
+        //    SessionContext.CurrentStudent = e.Child;
+        //    // Display the details of the current student
+        //    GotoStudentProfile();
+        //}
 
         #endregion
 
@@ -123,7 +123,7 @@ namespace GradesPrototype
                     // Display the student name in the banner at the top of the page
                     txtName.Text = string.Format("Welcome {0} {1}", SessionContext.CurrentStudent.FirstName, SessionContext.CurrentStudent.LastName);
                     // Display the details for the current student
-                    GotoStudentProfile();
+                    //GotoStudentProfile();
                     break;
 
                 case Role.Teacher:
@@ -132,7 +132,7 @@ namespace GradesPrototype
                     txtName.Text = string.Format("Welcome {0} {1}", SessionContext.CurrentTeacher.FirstName, SessionContext.CurrentTeacher.LastName);
 
                     // Display the list of students for the teacher
-                    GotoStudentsPage();                    
+                    //GotoStudentsPage();                    
                     break;
             }
         }
